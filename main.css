@@ -32,10 +32,20 @@ nav ul li a:hover {
 }
 
 .intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     min-height: 55vh;
     padding-top: 45vh;
     background-color: #CCD3DB;
+}
+
+.intro div {
+    /* border: 1px solid yellow;  */
+    width: 400px;
     text-align: center;
+    margin-bottom: 40px;
+
 }
 
 .work {
@@ -133,8 +143,7 @@ figure {
 footer {
     background-color: #026575;
     text-align: center;
-
 }
 footer p {
     color: #fff;
-}
+}}
