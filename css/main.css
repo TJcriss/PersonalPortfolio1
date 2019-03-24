@@ -3,6 +3,8 @@
     padding: 0;
 }
 
+
+
 h2 {
     text-align: center;
     padding: 20px;
@@ -30,6 +32,20 @@ nav ul li a {
 nav ul li a:hover {
     color: green;
 }
+
+body {
+  margin: 0;
+  background-color: black;
+}
+
+.star {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: white;
+}
+
+
 
 .intro {
     display: flex;
@@ -139,6 +155,56 @@ figure {
       padding: 10px;
       line-height: normal;
     }  
+
+    p {
+      color: #FFFF82;
+    }
+    
+    /* Set the font, lean the board, position it */
+    #board {
+      font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+      transform: perspective(300px) rotateX(25deg);
+      transform-origin: 50% 100%;
+      text-align: justify;
+      position: absolute;
+      margin-left: -9em;
+      font-weight: bold;
+      overflow: hidden;
+      font-size: 350%;
+      height: 50em;
+      width: 18em;
+      bottom: 0;
+      left: 50%;
+    }
+    
+    #board:after {
+      position: absolute;
+      content: ' ';
+      bottom: 60%;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+    
+    /* Set the scrolling animation and position it */
+    #content {
+      animation: scroll 100s linear 16s;
+      position: absolute;
+      top: 100%;
+    }
+    
+    #title, #subtitle {
+      text-align: center;
+    }
+    
+    @keyframes scroll {
+        0% {
+            top: 100%;
+        }
+        100% {
+            top: -170%;
+        }
+    }
 
 footer {
     background-color: #026575;
