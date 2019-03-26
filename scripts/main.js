@@ -1,11 +1,10 @@
-import { films } from './data/films.js'
-import { people } from '../data/planets'
+import { films } from './films.js'
 
 films.sort((a,b) => (a.episode_id > b.episode_id ? 1 : -1))
 
 const intro = document.querySelector('.intro')
 
-let board = document.querySelector('div')
+let board = document.createElement('div')
 board.className = 'board'
 
 let content = document.createElement('div')
@@ -43,8 +42,8 @@ const numStars = 100;
 
 // For every star we want to display
 for (let i = 0; i < numStars; i++) {
-  let star = document.createElement("div");  
-  star.className = "star";
+  let star = document.createElement('div');  
+  star.className = 'star';
   var xy = getRandomPosition();
   star.style.top = xy[0] + 'px';
   star.style.left = xy[1] + 'px';

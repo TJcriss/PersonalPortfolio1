@@ -1,10 +1,16 @@
-import { people } from '../data/people.js'
+import { people } from './people.js'
 
 const men = people.filter(person => person.gender === 'male')
 const women = people.filter(person => person.gender === 'female')
 const other = people.filter(person => (person.gender === 'n/a') || (person.gender === 'hermaphrodite') || (person.gender === 'none'))
 
-console.log(men, women, other);
+// console.log(men, women, other);
+
+const allHomeWorlds = people.map(person => {
+    return { name: person.name, home: person.homeworld}
+})
+
+
 
 const mainContainer = document.createElement('div')
 mainContainer.className = 'container'
@@ -21,7 +27,7 @@ men.forEach((man) => {
 
 women.forEach((man) => {
     let manElement = document.createElement('div')
-    manElement.className = 'box'
+    manElement.className = 'box'   
     manElement.textContent = man.name
     let eyeColor = document.createElement('p')
     eyeColor.textContent = man.eye_color
