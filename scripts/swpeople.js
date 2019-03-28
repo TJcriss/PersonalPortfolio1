@@ -1,38 +1,34 @@
-import { people } from '../data/people'
-
-const men = people.filter(person => person.gender === 'male')
-const women = people.filter(person => person.gender === 'female')
-const other = people.filter(person => (person.gender === 'n/a') || (person.gender === 'hermaphrodite') || (person.gender === 'none'))
-
-// console.log(men, women, other);
+import { people } from '../data/people.js'
+import { planets } from '../data/planets.js'
 
 const allHomeWorlds = people.map(person => {
-    return { name: person.name, home: person.homeworld}
+    let foundWorld = planets.find(planet => {
+        return planet.url === person.homeworld
+    })
+    return {
+        name: person.name,
+        home: foundWorld.name,
+        eye_color: person.eye_color
+    }
 })
 
+console.log(allHomeWorlds);
 
 
 const mainContainer = document.createElement('div')
 mainContainer.className = 'container'
 
-men.forEach((man) => {
-    let manElement = document.createElement('div')
-    manElement.className = 'box'
-    manElement.textContent = man.name
-    let eyeColor = document.createElement('p')
-    eyeColor.textContent = man.eye_color
-    manElement.appendChild(eyeColor)
-    mainContainer.appendChild(manElement)
-})
+allHomeWorlds.forEach((person) => {
+    let personElement = document.createElement('div')
+    let planetElement = document.createElement('p')
 
-women.forEach((man) => {
-    let manElement = document.createElement('div')
-    manElement.className = 'box'   
-    manElement.textContent = man.name
-    let eyeColor = document.createElement('p')
-    eyeColor.textContent = man.eye_color
-    manElement.appendChild(eyeColor)
-    mainContainer.appendChild(manElement)
+    personElement.className = 'box'
+    personElement.textContent = person.name
+    planetElement.textContent = person.home
+    personElement.style.backgroundColor = person.eye_color
+
+    personElement.appendChild(planetElement)
+    mainContainer.appendChild(personElement)
 })
 
 document.body.appendChild(mainContainer)
